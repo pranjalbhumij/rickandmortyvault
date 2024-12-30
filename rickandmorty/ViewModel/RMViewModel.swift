@@ -18,6 +18,7 @@ class RMViewModel: ObservableObject {
         isLoading = true
         defer { isLoading = false }
         do {
+            print("Fetching page: \(currentPage)")
             let response = try await URLSession.shared.data(from: URL(string: "https://rickandmortyapi.com/api/character/?page=\(currentPage)")!)
             let decodedData = try JSONDecoder().decode(CharacterResponse.self, from: response.0)
             characters.append(contentsOf: decodedData.results!)
