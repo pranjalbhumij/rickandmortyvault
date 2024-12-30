@@ -19,7 +19,7 @@ struct ContentView: View {
         NavigationStack {
             ScrollViewReader { proxy in
                 ZStack {
-                    mainScrollView(proxy: proxy)
+                    mainScrollView()
                     if showMoveToTopButton {
                         moveToTopButton(proxy: proxy)
                     }
@@ -35,7 +35,7 @@ struct ContentView: View {
     }
     
     @ViewBuilder
-    private func mainScrollView(proxy: ScrollViewProxy) -> some View {
+    private func mainScrollView() -> some View {
         ScrollView {
             GeometryReader { geometry in
                 Color.clear
